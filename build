@@ -1,0 +1,21 @@
+#!/bin/bash
+RUBY_VERSION=${RUBY_VERSION:-1.9.3}
+
+function set_environment() {
+  WORKSPACE=${WORKSPACE:-.}
+
+  ruby_version=$1
+  if [ -e "$HOME/.rvm/scripts/rvm" ]; then
+    source  "$HOME/.rvm/scripts/rvm"
+    rvm use $RUBY_VERSION
+  elif [ -e /usr/local/rvm/scripts/rvm ]; then
+    source /usr/local/rvm/scripts/rvm
+    rvm use $RUBY_VERSION
+  else
+    echo "Going ahead with system Ruby `ruby -v`"
+  fi
+}
+
+set_environment $RUBY_VERSION
+bundle install
+bundle exec rake $@
