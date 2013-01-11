@@ -21,7 +21,7 @@ function set_environment() {
 }
 
 function set_database_yml() {
-  if [ -e $WORKSPACE/config/database.deployment.yml ] && [ -! -e $WORKSPACE/config/database.yml ]; then
+  if [ -e $WORKSPACE/config/database.deployment.yml ] && [ ! -e $WORKSPACE/config/database.yml ]; then
     cp $WORKSPACE/config/database{.deployment,}.yml
   fi
 }
