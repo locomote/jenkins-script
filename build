@@ -16,6 +16,14 @@ function set_environment() {
   fi
 }
 
+function set_database_yml() {
+  if [ -e $WORKSPACE/config/database.deployment.yml ] && [ -! -e $WORKSPACE/config/database.yml ]; then
+    cp $WORKSPACE/config/database{.deployment,}.yml
+  fi
+}
+
 set_environment $RUBY_VERSION
+set_database_yml
+
 bundle install
 bundle exec rake $@
