@@ -14,6 +14,10 @@ function set_environment() {
   else
     echo "Going ahead with system Ruby `ruby -v`"
   fi
+
+  export LANG=en_US.UTF-8
+  export LC_CTYPE=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
 }
 
 function set_database_yml() {
