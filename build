@@ -1,4 +1,5 @@
-#!/bin/bash -exo pipefail
+#!/bin/bash
+set -exo pipefail
 RUBY_VERSION=${RUBY_VERSION:-2.0.0}
 
 function set_environment() {
