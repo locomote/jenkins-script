@@ -1,5 +1,5 @@
-#!/bin/bash
-RUBY_VERSION=${RUBY_VERSION:-1.9.3}
+#!/bin/bash -exo pipefail
+RUBY_VERSION=${RUBY_VERSION:-2.0.0}
 
 function set_environment() {
   WORKSPACE=${WORKSPACE:-.}
