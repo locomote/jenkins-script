@@ -28,7 +28,9 @@ function set_database_yml() {
 }
 
 set_environment $RUBY_VERSION
-set_database_yml
+if [ -n "$SET_DATABASE_YML" ]; then
+  set_database_yml
+fi
 
 bundle install
-bundle exec rake $@
+bundle exec $@
