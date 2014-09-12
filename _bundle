@@ -21,6 +21,6 @@ function set_environment() {
   export LC_ALL=en_US.UTF-8
 }
 
-set_environment $RUBY_VERSION
+set_environment $RUBY_VERSION 1>&2
 
 bundle $@
