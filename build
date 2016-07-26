@@ -7,7 +7,14 @@ function set_database_yml() {
   fi
 }
 
+function set_default_environment_config() {
+  if [ -e $WORKSPACE/.env.example ] && [ ! -e $WORKSPACE/.env ]; then
+    cp $WORKSPACE/.env{.example,}
+  fi
+}
+
 set_database_yml
+set_default_environment_config
 
 bundle install
 bundle exec rake $@
